@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Reddit AI Auto-Responder</title>
+<link rel="stylesheet" href="./styles.css">
+<script src="./dashboard.js" defer></script>
+</head>
+<body>
+<main>
+<header><div><small>REDDIT • MODERATOR DASHBOARD</small><h1>AI Auto-Responder</h1></div><span id="state">Connecting…</span></header>
+<p>Automated answers for help posts in communities that authorize this app. Posting is disabled by default.</p>
+<div id="error" role="alert" hidden></div>
+<section class="stats">
+<article><small>Screened (7d)</small><strong id="screened">0</strong></article>
+<article><small>Published (7d)</small><strong id="published">0</strong></article>
+<article><small>Dry runs (7d)</small><strong id="dry-run">0</strong></article>
+<article><small>Errors (7d)</small><strong id="error-count">0</strong></article>
+</section>
+<section class="panel">
+<h2>Safety controls</h2>
+<p id="community">Loading community…</p>
+<div class="controls"><button id="toggle" disabled>Loading…</button><button id="refresh">Refresh</button></div>
+<p id="help">The emergency pause is enforced on the server. Releasing it does not enable automatic publishing.</p>
+</section>
+<section class="panel">
+<h2>Community configuration</h2>
+<dl>
+<dt>Global stop</dt><dd id="global">?</dd>
+<dt>Community enabled</dt><dd id="enabled">?</dd>
+<dt>Automatic posting</dt><dd id="auto">?</dd>
+<dt>Topics</dt><dd id="topics">?</dd>
+<dt>Reply limit</dt><dd id="limit">?</dd>
+<dt>AI screening target</dt><dd id="confidence">?</dd>
+</dl>
+<p>Change app settings in Reddit Mod Tools → Installed Apps. Only moderators can use this dashboard.</p>
+</section>
+<footer>Automated answers identify themselves. Reddit posts are not used for model training. <a href="https://developers.reddit.com/" target="_blank" rel="noreferrer">Reddit Developer Platform</a></footer>
+</main>
+</body>
+</html>

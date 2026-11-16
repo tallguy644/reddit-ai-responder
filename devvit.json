@@ -1,0 +1,96 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "reddit-answer-agent",
+  "post": {
+    "dir": "public",
+    "entrypoints": {
+      "default": {
+        "entry": "index.html",
+        "height": "tall"
+      }
+    }
+  },
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.js"
+  },
+  "permissions": {
+    "reddit": true,
+    "redis": true,
+    "http": {
+      "enable": true,
+      "domains": [
+        "api.openai.com"
+      ]
+    }
+  },
+  "triggers": {
+    "onPostCreate": "/internal/triggers/post-created"
+  },
+  "menu": {
+    "items": [
+      {
+        "label": "AI Responder dashboard",
+        "description": "Moderator control panel",
+        "forUserType": "moderator",
+        "location": "subreddit",
+        "endpoint": "/internal/menu/dashboard"
+      }
+    ]
+  },
+  "settings": {
+    "global": {
+      "openaiApiKey": {
+        "type": "string",
+        "label": "OpenAI API Key",
+        "isSecret": true
+      },
+      "openaiModel": {
+        "type": "string",
+        "label": "Model",
+        "defaultValue": "gpt-4.1-mini"
+      },
+      "globalPause": {
+        "type": "boolean",
+        "label": "Global emergency stop",
+        "defaultValue": true
+      }
+    },
+    "subreddit": {
+      "enabled": {
+        "type": "boolean",
+        "label": "Enable questions in this community",
+        "defaultValue": false
+      },
+      "autoPublish": {
+        "type": "boolean",
+        "label": "Permit automatic replies (only after approval)",
+        "defaultValue": false
+      },
+      "requireHelpFlair": {
+        "type": "boolean",
+        "label": "Require help/question flair",
+        "defaultValue": true
+      },
+      "topicKeywords": {
+        "type": "string",
+        "label": "Allowed topics, comma-separated",
+        "defaultValue": "windows,computer,printer,android,linux,software,programming"
+      },
+      "maxDailyReplies": {
+        "type": "number",
+        "label": "Daily reply limit (capped at 5)",
+        "defaultValue": 3
+      },
+      "minimumConfidence": {
+        "type": "number",
+        "label": "Screening threshold (90-100)",
+        "defaultValue": 90
+      }
+    }
+  },
+  "scripts": {
+    "dev": "npm run build:watch",
+    "build": "npm run build"
+  }
+}
