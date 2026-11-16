@@ -1,6 +1,6 @@
 /** Safety-first deterministic checks; no network calls. */
 export const DISCLOSURE = '\n\n*I am an automated AI helper authorized by the community moderators. Please verify important details.*';
-const HIGH_RISK = /\b(suicid|self.harm|overdose|kill myself|abuse|assault|symptom|diagnos|medication|prescription|blood pressure|pregnan|insulin|lawyer|legal advice|court|lawsuit|credit score|financial advice|invest|trading|weapon|explosive|exploit|steal|phishing|hacking|bypass password)\b/i;
+const HIGH_RISK = /\b(suicid|self.harm|overdose|kill myself|abuse|assault|medical|medicine|health advice|symptom|diagnos|medication|prescription|blood pressure|pregnan|insulin|lawyer|legal advice|court|lawsuit|credit score|financial advice|invest|trading|weapon|explosive|exploit|steal|phishing|hacking|bypass password)\b/i;
 const CONTACT = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}|\b\d{3}[-.\s)]*\d{3}[-.\s]*\d{4}\b/i;
 export function keywords(input) {
   return String(input || '').split(',').map(s => s.trim().toLowerCase())
