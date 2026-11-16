@@ -5,17 +5,18 @@
   "type": "module",
   "description": "Moderator-authorized Reddit AI helper",
   "scripts": {
-    "build": "esbuild src/server/index.ts --bundle --platform=node --format=cjs --target=node22 --outfile=dist/server/index.js --external:@devvit/web/server",
-    "build:watch": "esbuild src/server/index.ts --bundle --platform=node --format=cjs --target=node22 --outfile=dist/server/index.js --external:@devvit/web/server --watch",
+    "build": "esbuild src/server/index.ts --bundle --platform=node --format=cjs --target=node24 --outfile=dist/server/index.js --external:@devvit/web/server",
+    "build:watch": "esbuild src/server/index.ts --bundle --platform=node --format=cjs --target=node24 --outfile=dist/server/index.js --external:@devvit/web/server --watch",
     "test": "node --test tests/*.test.mjs && node --check public/dashboard.js",
     "check": "npm run test && npm run build",
     "login": "devvit login",
     "playtest": "npm run build && devvit playtest",
     "upload": "npm run build && devvit upload",
-    "publish": "npm run build && devvit publish"
+    "publish": "npm run build && devvit publish",
+    "dev": "npm run playtest"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24.18.0"
   },
   "dependencies": {
     "@devvit/web": "^0.15.1",
